@@ -35,6 +35,22 @@
                             "text": "> This is the third record!"
                         }
                     ]
+                },
+                {
+                    "text": "> LOCKED LINK. Shift+click to unlock",
+                    "type": "link",
+                    "target": [
+                        {
+                            "target": "lockedDialog",
+                            "type": "dialog",
+                            "shiftKey": false
+                        },
+                        {
+                            "target": "menu",
+                            "type": "link",
+                            "shiftKey": true
+                        }
+                    ]
                 }
             ]
         },
