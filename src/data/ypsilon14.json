@@ -84,13 +84,10 @@
                 "Diagnostics",
                 "===========",
                 "",
-                "Checking life support.",
-                ".................................... done.",
+                "Checking life support.............. Done.",
+                "Checking main systems.............. Done.",
                 "",
-                "Checking main systems.",
-                ".................................... done.",
-                "",
-                { "text": "WARNING: Airflow 82.4%. Check vents for blockage.", "className" : "alert", "type": "text" },
+                { "text": "WARNING: Airflow 82.4%. Check crew quarters vents for blockage.", "className" : "alert", "type": "text" },
                 { "text": "WARNING: Shower #5 non-functional as of 1 day(s).", "className" : "alert", "type": "text" },
                 "",
                 "NOTICE: Air filters replaced 455 day(s) ago.",
@@ -131,6 +128,7 @@
             "content": [
                 "Roster",
                 "======",
+                "",
                 "01. VERHOEVEN, Sonya     :: Admin",
                 "02. SINGH, Ashraf        :: Breaker",
                 "03. DE BEERS, Dana       :: Lead drill",
@@ -211,8 +209,38 @@
                 "",
                 { "text": "> SHOWERS", "target": "showers", "type": "link" },
                 { "text": "> HYDROPONICS LAB", "target": "greenhouse", "type": "link" },
-                { "text": "> AIRLOCKS [A]", "target": "airlocks", "type": "link" },
-                { "text": "> SYSTEM [A]", "target": "system", "type": "link" },
+                {
+                    "text": "> AIRLOCKS [A]",
+                    "type": "link",
+                    "target": [
+                        {
+                            "target": "lockedDialog",
+                            "type": "dialog",
+                            "shiftKey": false
+                        },
+                        {
+                            "target": "airlocks",
+                            "type": "link",
+                            "shiftKey": true
+                        }
+                    ]
+                },
+                {
+                    "text": "> SYSTEM [A]",
+                    "type": "link",
+                    "target": [
+                        {
+                            "target": "lockedDialog",
+                            "type": "dialog",
+                            "shiftKey": false
+                        },
+                        {
+                            "target": "system",
+                            "type": "link",
+                            "shiftKey": true
+                        }
+                    ]
+                },
                 "",
                 "======",
                 "",
@@ -220,10 +248,246 @@
             ]
         },
         {
-            "id": "screen1",
+            "id": "airlocks",
             "type": "screen",
             "content": [
-
+                "Airlocks",
+                "========",
+                "",
+                {
+                    "type": "link",
+                    "text": "> DOCKING BAY 1 :: LOCKED",
+                    "target": [
+                        {
+                            "target": "airlockError",
+                            "type": "dialog",
+                            "shiftKey": false
+                        }
+                    ]
+                },
+                {
+                    "type": "toggle",
+                    "states": [
+                        {
+                            "text": "> DOCKING BAY 2 :: UNLOCKED",
+                            "active": true
+                        },
+                        {
+                            "text": "> DOCKING BAY 2 :: LOCKED",
+                            "active": false
+                        }
+                    ]
+                },
+                "",
+                "======",
+                "",
+                { "text": "< BACK", "target": "controls", "type": "link" }
+            ]
+        },
+        {
+            "id": "showers",
+            "type": "screen",
+            "content": [
+                "Showers",
+                "=======",
+                "",
+                {
+                    "type": "toggle",
+                    "states": [
+                        {
+                            "text": "> SHOWER 1 :: OFF",
+                            "active": true
+                        },
+                        {
+                            "text": "> SHOWER 1 :: ON",
+                            "active": false
+                        }
+                    ]
+                },
+                {
+                    "type": "toggle",
+                    "states": [
+                        {
+                            "text": "> SHOWER 2 :: OFF",
+                            "active": true
+                        },
+                        {
+                            "text": "> SHOWER 2 :: ON",
+                            "active": false
+                        }
+                    ]
+                },
+                {
+                    "type": "toggle",
+                    "states": [
+                        {
+                            "text": "> SHOWER 3 :: OFF",
+                            "active": true
+                        },
+                        {
+                            "text": "> SHOWER 3 :: ON",
+                            "active": false
+                        }
+                    ]
+                },
+                {
+                    "type": "toggle",
+                    "states": [
+                        {
+                            "text": "> SHOWER 4 :: OFF",
+                            "active": true
+                        },
+                        {
+                            "text": "> SHOWER 4 :: ON",
+                            "active": false
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "className": "alert",
+                    "text": "> SHOWER 5 :: MALFUNCTIONING"
+                },
+                {
+                    "type": "toggle",
+                    "states": [
+                        {
+                            "text": "> SHOWER 6 :: OFF",
+                            "active": true
+                        },
+                        {
+                            "text": "> SHOWER 6 :: ON",
+                            "active": false
+                        }
+                    ]
+                },
+                "",
+                "======",
+                "",
+                { "text": "< BACK", "target": "controls", "type": "link" }
+            ]
+        },
+        {
+            "id": "greenhouse",
+            "type": "screen",
+            "content": [
+                "Hydroponics Lab",
+                "===============",
+                "",
+                {
+                    "type": "toggle",
+                    "states": [
+                        {
+                            "text": "> MIST HYDRATION SYSTEM :: OFF",
+                            "active": true
+                        },
+                        {
+                            "text": "> MIST HYDRATION SYSTEM :: ON",
+                            "active": false
+                        }
+                    ]
+                },
+                "",
+                "======",
+                "",
+                { "text": "< BACK", "target": "controls", "type": "link" }
+            ]
+        },
+        {
+            "id": "system",
+            "type": "screen",
+            "content": [
+                "System",
+                "======",
+                "",
+                { "text": "> LIFE SUPPORT", "target": "lifesupport", "type": "link" },
+                { "text": "> SELF-DESTRUCT", "target": "selfdestruct", "type": "link" },
+                "",
+                "======",
+                "",
+                { "text": "< BACK", "target": "controls", "type": "link" }
+            ]
+        },
+        {
+            "id": "lifesupport",
+            "type": "screen",
+            "content": [
+                "Life Support",
+                "============",
+                "",
+                { "type": "text", "className": "alert", "text": "WARNING: Disabling life support is a violation of company policy #2778-A. ISHIYAMA DYNAMICS assumes no responsibilities or liabilities resulting from the improper use of this feature." },
+                "",
+                {
+                    "type": "toggle",
+                    "states": [
+                        {
+                            "text": "> LIFE SUPPORT :: ENABLED",
+                            "active": true
+                        },
+                        {
+                            "text": "> LIFE SUPPORT :: DISABLED",
+                            "active": false
+                        }
+                    ]
+                },
+                "",
+                "======",
+                "",
+                { "text": "< BACK", "target": "system", "type": "link" }
+            ]
+        },
+        {
+            "id": "selfdestruct",
+            "type": "screen",
+            "content": [
+                "Self-Destruct",
+                "=============",
+                "",
+                { "type": "text", "className": "alert", "text": "WARNING: Destruction of corporate property is a violation of company policy #2778-B. ISHIYAMA DYNAMICS assumes no responsibilities or liabilities resulting from the improper use of this feature." },
+                "",
+                { "text": "> ACTIVATE SELF-DESTRUCT", "target": "activateeslfdestruct", "type": "link" },
+                "",
+                "======",
+                "",
+                { "text": "< BACK", "target": "system", "type": "link" }
+            ]
+        },
+        {
+            "id": "activateeslfdestruct",
+            "type": "screen",
+            "content": [
+                "Activate Self-Destruct",
+                "======================",
+                "",
+                { "type": "text", "className": "alert", "text": "THIS WILL INITIATE A 10-MINUTE STATION SELF-DESTRUCT SEQUENCE. THIS CANNOT BE UNDONE." },
+                { "type": "text", "className": "alert", "text": "TYPE 'OK' TO BEGIN COUNTDOWN." },
+                "",
+                {
+                    "type": "prompt",
+                    "prompt": "TYPE 'OK' TO BEGIN COUNTDOWN: ",
+                    "className": "cursor",
+                    "commands": [
+                        {
+                            "command": "ok",
+                            "action": {
+                                "type": "link",
+                                "target": "evacute"
+                            }
+                        }
+                    ]
+                },
+                "",
+                "======",
+                "",
+                { "text": "< BACK", "target": "selfdestruct", "type": "link" }
+            ]
+        },
+        {
+            "id": "evacute",
+            "type": "screen",
+            "content": [
+                { "type": "text", "className": "alert", "text": "SELF-DESTRUCT SEQUENCE INITIATED." },
+                { "type": "text", "className": "alert", "text": "PLEASE EVACUTE AS SOON AS POSSIBLE." }
             ]
         }
     ],
@@ -233,6 +497,15 @@
             "type": "alert",
             "content": [
                 "Error! Authorization required."
+            ]
+        },
+        {
+            "id": "airlockError",
+            "type": "alert",
+            "content": [
+                "ERROR! Lock override in effect.",
+                "",
+                "Cannot unlock remotely. Manual intervention required."
             ]
         }
     ]
