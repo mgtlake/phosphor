@@ -15,7 +15,7 @@
     $scan-width: 1px;
 
     // emulates a damage-your-eyes bad pre-2000 CRT screen ♥ (true, false)
-    $scan-crt: false;
+    $scan-crt: true;
 
     // frames-per-second (should be > 1), only applies if $scan-crt: true;
     $scan-fps: 60;
@@ -40,7 +40,7 @@
     // apply CRT animation: @include scan-crt($scan-crt);
     @mixin scan-crt($scan-crt) {
         @if $scan-crt == true {
-            animation: scanlines 1s steps($scan-fps) infinite;
+            animation: scanlines 20s steps($scan-fps) infinite;
         }
         @else { animation: none; }
     }
@@ -48,7 +48,7 @@
     // apply CRT animation: @include scan-crt($scan-crt);
     @mixin scan-moving($scan-moving-line) {
         @if $scan-moving-line == true {
-            animation: scanline 6s linear infinite;
+            animation: scanline 20s linear infinite reverse;
         }
         @else { animation: none; }
     }
@@ -68,13 +68,16 @@
 
         // unique scanline travelling on the screen
         &:before {
-            // position: absolute;
-            // bottom: 100%;
+            position: absolute;
+            bottom: 100%;
             width: 100%;
-            height: $scan-width * 1;
+            height: 500px;
             z-index: $scan-z-index + 1;
-            background: $foreground;
-            opacity: 0.2;
+            background: linear-gradient(
+                $transparent,
+                $foreground         
+            );
+            opacity: 0.1;
             // animation: scanline 6s linear infinite;
             @include scan-moving($scan-moving-line);
         }
@@ -99,8 +102,8 @@
 /* ANIMATE UNIQUE SCANLINE */
     @keyframes scanline {
         0% {
-            transform: translate3d(0,200000%,0);
-            // bottom: 0%; // to have a continuous scanline move, use this line (here in 0% step) instead of transform and write, in &:before, { position: absolute; bottom: 100%; }
+            // transform: translate3d(0,200000%,0);
+            bottom: 0%; // to have a continuous scanline move, use this line (here in 0% step) instead of transform and write, in &:before, { position: absolute; bottom: 100%; }
         }
     }
 

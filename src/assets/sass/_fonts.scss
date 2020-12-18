@@ -1,4 +1,4 @@
-@font-face {
+font-face {
     font-family: "Vga";
     src: url("../fonts/vga.woff") format("woff"),
         url("../fonts/vga.woff2") format("woff2"),
@@ -7,11 +7,42 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: "Commodore";
+    src: url("../fonts/commodore.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Apple][ 40 Char";
+    src: url("../fonts/apple][40.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Apple][ 80 Char";
+    src: url("../fonts/apple][80.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
 // TODO: add theme mixins
-$font-family: "Vga", Menlo, Monaco, Consolas, "Courier New", monospace;
+// $font-family: "Vga", Menlo, Monaco, Consolas, "Courier New", monospace;
+// $font-family: "Commodore","Vga", Menlo, Monaco, Consolas, "Courier New", monospace;
+$font-family: "Apple][ 40 Char","Vga", Menlo, Monaco, Consolas, "Courier New", monospace;
+// $font-family: "Apple][ 80 Char","Vga", Menlo, Monaco, Consolas, "Courier New", monospace;
 
 $scalefactor: 2.0;
 // the following values are font-dependant
 
-$fontsize: 24px * $scalefactor;
-$lineheight: 19px * $scalefactor;
+// $fontsize: 24px * $scalefactor;
+// $lineheight: 19px * $scalefactor;
+$fontsize: 10px * $scalefactor;
+$lineheight: 15px * $scalefactor;
+// $fontsize: 12px * $scalefactor;
+// $lineheight: 16px * $scalefactor;
+
+$fontspacing: -0.1em;
+// $fontspacing: -0em;

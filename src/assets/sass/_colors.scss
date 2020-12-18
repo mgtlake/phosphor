@@ -2,7 +2,7 @@
 
 // TODO: add theme mixins
 // blue/white
-$foreground: rgb(212, 249, 250);
+$foreground: hsl(211, 79%, 73%);//rgb(212, 249, 250);
 $background: rgb(0, 12, 12);
 $alert: rgb(255, 60, 0);
 
@@ -12,20 +12,25 @@ $alert: rgb(255, 60, 0);
 // $alert: rgb(255, 60, 0);
 
 // green
-// $foreground: rgb(36, 161, 20);
-// $background: rgb(0, 2, 0);
-// $alert: rgb(255, 60, 0);
+$foreground: rgb(12, 204, 104); //rgb(36, 161, 20);
+$light-background: hsl(149, 39%, 22%); //rgb(36, 161, 20);
+$background: rgb(0, 2, 0);
+$alert: rgb(255, 60, 0);
 
 // white
 // $foreground: rgb(218, 218, 218);
 // $background: rgb(2, 2, 2);
 // $alert: rgb(255, 60, 0);
 
-$scanlines-foreground: rgba($foreground, 0.1);
+$scanlines-foreground: rgba($foreground, 0.05);
 $scanlines-background: rgba($background, 0.5);
 
-$foreground-glow: 0 0 5px rgba($foreground, 0.5);
-$background-glow: 0 0 2px rgba($background, 0.5);
-$alert-glow: 0 0 5px rgba($alert, 0.5);
+$transparent: rgba($background, 0);
 
-$background-gradient: radial-gradient(rgba($foreground, 0.15), rgba($background, 1) 100%)
+$foreground-glow: 0 0 5px rgba($foreground, 0.5), 0 0 10px rgba($foreground, 0.5), 0 0 25px rgba($foreground, 0.3), 0 0 50px rgba($foreground, 0.1);
+$subtle-foreground-glow: 0 0 5px rgba($foreground, 0.75);
+$large-foreground-glow: 0 0 10px rgba($foreground, 0.75), 0 0 25px rgba($foreground, 0.5), 0 0 50px rgba($foreground, 0.3), 0 0 100px rgba($foreground, 0.1);
+$background-glow: 0 0 2px rgba($background, 0.5);
+// $alert-glow: 0 0 5px rgba($alert, 0.75), 0 0 10px rgba($alert, 0.5), 0 0 25px rgba($alert, 0.3), 0 0 50px rgba($alert, 0.1);
+
+$background-gradient: radial-gradient(rgba($foreground, 0.05), rgba($background, 1) 100%)

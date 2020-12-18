@@ -4,8 +4,9 @@
 html, body {
     font-family: $font-family;
     font-size: $fontsize;
+    letter-spacing: $fontspacing;
     line-height: $lineheight;
-    color: $foreground;
+    color: hsl(149, 85%, 52%);//$foreground;
 
     user-select: none;
     text-shadow: $foreground-glow;
@@ -27,11 +28,36 @@ body {
 }
 
 .alert {
-    color: $alert;
-    text-shadow: $alert-glow;
+    // color: $alert;
+    // color: $foreground;
+    // text-shadow: $foreground-glow;
+    // text-shadow: $alert-glow;
+    color: $background;
+    background: $foreground;
+    // outline: 5px $foreground;
+    text-shadow: $background-glow;
+    box-shadow: $foreground-glow;
+    // box-shadow: $subtle-foreground-glow;
+    animation: flash 1.33s infinite steps(1);
 
     & > span.cursor {
         color: $alert;
         background-color: rgba($alert, 0.75);
+    }
+
+    @keyframes flash {
+        0% {
+            color: $light-background;
+            background: $foreground;
+            // outline: 5px $foreground;
+            text-shadow: $background-glow;
+            box-shadow: $large-foreground-glow;
+        }
+        50% {
+            color: $foreground;
+            text-shadow: $foreground-glow;
+            background: $transparent;
+            box-shadow: none;
+        }
     }
 }
